@@ -1,0 +1,175 @@
+[BEGIN] 2016/3/29 16:18:40
+<Quidway>dis	
+<Quidway>display cur	
+<Quidway>display current-configuration 
+!Software Version V200R003C00SPC300
+#
+sysname Quidway
+#
+router id 192.168.1.2
+#
+vlan batch 2 to 5
+#
+stp instance 0 root primary
+#
+undo nap slave enable
+#
+dhcp enable
+#
+dhcp snooping enable ipv4
+#
+aaa
+ authentication-scheme default
+ authorization-scheme default
+ accounting-scheme default
+ domain default
+ domain default_admin
+ local-user admin password cipher %@%@N:I=AuH5{&wT:GMC5b3X3Uw}%@%@
+ local-user admin service-type http
+ local-user qigen password cipher %@%@UP/_9#3wb(]E|UXB2El!yW2c%@%@
+ local-user qigen privilege level 5
+ local-user qigen service-type telnet ssh http
+#
+interface Vlanif1
+ ip address 192.168.1.2 255.255.255.0
+#
+interface Vlanif2
+ ip address 192.168.2.254 255.255.255.0
+ dhcp select interface
+ dhcp server excluded-ip-address 192.168.2.1 192.168.2.50
+ dhcp server lease day 12 hour 0 minute 0
+ dhcp server dns-list 202.96.134.133 223.5.5.5
+#
+interface Vlanif3
+ ip address 192.168.3.254 255.255.255.0
+ dhcp select interface
+ dhcp server excluded-ip-address 192.168.3.1 192.168.3.50
+ dhcp server lease day 12 hour 0 minute 0
+ dhcp server dns-list 202.96.134.133 223.5.5.5
+#
+interface Vlanif4
+ ip address 192.168.4.254 255.255.255.0
+ dhcp select interface
+ dhcp server excluded-ip-address 192.168.4.1 192.168.4.50
+ dhcp server lease day 12 hour 0 minute 0
+ dhcp server dns-list 202.96.134.133 223.5.5.5
+#
+interface Vlanif5
+ ip address 192.168.5.254 255.255.255.0
+ dhcp select interface
+ dhcp server excluded-ip-address 192.168.5.1 192.168.5.50
+ dhcp server lease day 12 hour 0 minute 0
+ dhcp server dns-list 202.96.134.133 223.5.5.5
+#
+interface MEth0/0/1
+#
+interface GigabitEthernet0/0/1
+ port link-type access
+#
+interface GigabitEthernet0/0/2
+ port link-type access
+#
+interface GigabitEthernet0/0/3
+ port link-type access
+#
+interface GigabitEthernet0/0/4
+ port link-type access
+#                                         
+interface GigabitEthernet0/0/5
+ port link-type access
+#
+interface GigabitEthernet0/0/6
+ port link-type access
+#
+interface GigabitEthernet0/0/7
+ port link-type access
+#
+interface GigabitEthernet0/0/8
+ port link-type access
+#
+interface GigabitEthernet0/0/9
+ port link-type access
+#
+interface GigabitEthernet0/0/10
+ port link-type access
+#
+interface GigabitEthernet0/0/11
+ port link-type access
+ port default vlan 2
+#
+interface GigabitEthernet0/0/12
+ port link-type access                    
+ port default vlan 2
+#
+interface GigabitEthernet0/0/13
+ port link-type access
+ port default vlan 2
+#
+interface GigabitEthernet0/0/14
+ port link-type access
+ port default vlan 2
+#
+interface GigabitEthernet0/0/15
+ port link-type access
+ port default vlan 2
+#
+interface GigabitEthernet0/0/16
+ port link-type access
+ port default vlan 3
+#
+interface GigabitEthernet0/0/17
+ port link-type access
+ port default vlan 3
+#
+interface GigabitEthernet0/0/18
+ port link-type access                    
+ port default vlan 3
+#
+interface GigabitEthernet0/0/19
+ port link-type access
+ port default vlan 3
+#
+interface GigabitEthernet0/0/20
+ port link-type access
+ port default vlan 3
+#
+interface GigabitEthernet0/0/21
+ combo-port copper
+ port link-type access
+ port default vlan 4
+#
+interface GigabitEthernet0/0/22
+ combo-port copper
+ port link-type access
+ port default vlan 4
+#
+interface GigabitEthernet0/0/23
+ combo-port copper
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 5        
+#
+interface GigabitEthernet0/0/24
+ combo-port copper
+ port link-type trunk
+ port trunk allow-pass vlan 2 to 5
+#
+interface NULL0
+#
+ip route-static 0.0.0.0 0.0.0.0 192.168.1.1 preference 160
+#
+stelnet server enable
+#
+user-interface con 0
+ authentication-mode password
+ set authentication password cipher %@%@8v*a,IW,%>-(Zj=VEOuT,*"Dl(`|JkKyT$y%H@%)*E'K*"G,%@%@
+user-interface vty 0 4
+ authentication-mode aaa
+ protocol inbound all
+user-interface vty 16 20
+#
+return
+<Quidway>  
+<Quidway>
+<Quidway>
+
+[END] 2016/3/29 16:18:55
