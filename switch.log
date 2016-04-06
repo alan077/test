@@ -150,24 +150,4 @@ interface GigabitEthernet0/0/24
  combo-port copper
  port link-type trunk
  port trunk allow-pass vlan 2 to 5
-#
-interface NULL0
-#
-ip route-static 0.0.0.0 0.0.0.0 192.168.1.1 preference 160
-#
-stelnet server enable
-#
-user-interface con 0
- authentication-mode password
- set authentication password cipher %@%@8v*a,IW,%>-(Zj=VEOuT,*"Dl(`|JkKyT$y%H@%)*E'K*"G,%@%@
-user-interface vty 0 4
- authentication-mode aaa
- protocol inbound all
-user-interface vty 16 20
-#
-return
-<Quidway>  
-<Quidway>
-<Quidway>
-
 [END] 2016/3/29 16:18:55
